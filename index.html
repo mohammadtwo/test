@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>my-project</title>
+  </head>
+  <body>
+    <div id="app" class="bg-gray-500 p-4 h-dvh gap-4 w-full flex flex-col">
+      <div
+        class="bg-amber-400 flex-1 gap-1 rounded-2xl p-2 flex flex-col justify-between text-center max-h-96 items-center"
+      >
+        <div class="flex flex-col gap-1">
+          <div>جمع کل سفارشات :</div>
+          <div>4000</div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <div>حق سرویس و کارمزد</div>
+          <div>2000</div>
+        </div>
+        <div class="flex flex-col gap-1">
+          <div>تخفیف :</div>
+          <div>6000</div>
+        </div>
+        <div
+          class="flex items-center justify-center bg-amber-400 gap-2.5 pr-2.5"
+        >
+          <div class="">
+            <input
+              class="outline-none pr-1 block h-8 bg-white"
+              type="text"
+              placeholder="تخفیف"
+            />
+          </div>
+          <div class="flex items-center relative justify-center">
+            <input
+              class="absolute top-50% left-2.5 h-8 w-8 accent-red-600 text-amber-600"
+              type="checkbox"
+            />
+          </div>
+        </div>
+        <div class="flex flex-col gap-1 mb-1">
+          <div>مبلغ قابل پرداخت :</div>
+          <div>9000 تومان</div>
+        </div>
+        <div class="bg-blue-950 p-2.5 px-4 text-white rounded-2xl">
+          <button type="button">ثبت سفارش</button>
+        </div>
+      </div>
+      <div id="card_cuntiner"
+        class="bg-blue-500 flex-4 overflow-y-auto rounded-2xl grid grid-cols-1 gap-y-10 max-h-full"
+      >
+        <div
+          id="card"
+          class="grid grid-cols-4 grid-rows-3 bg-white m-auto mt-5 max-h-[150px] w-[95%] h-[auto] gap-x-2.5 overflow-hidden rounded-2xl"
+        >
+          <div class="col-start-1 col-end-3 row-start-1 row-end-4 relative">
+            <img
+              class="object-cover w-full h-full"
+              src="./src/assets/Images/soda.png"
+              alt="Berguer"
+            />
+          </div>
+
+          <h3 class="col-start-3 col-end-5 row-start-1">همبرگرمعمولی</h3>
+          <p class="col-start-3 col-end-5 row-start-2 row-end-3">
+            <span>تومان</span><span>1000</span>
+          </p>
+          <div
+            class="min-w-[50px] border-2 rounded-[9px] overflow-hidden h-6 bg-white flex items-center justify-center col-start-3 col-end-4 row-start-3 row-end-4"
+          >
+            <button
+              class="px-2 text-center w-full h-full flex items-center justify-center"
+            >
+              +
+            </button>
+            <p
+              class="min-w-[16px] text-center px-5 flex items-center justify-center"
+            >
+              0
+            </p>
+            <button
+              class="px-2 text-center w-full h-full flex items-center justify-center"
+            >
+              -
+            </button>
+          </div>
+          <div class="col-start-4 col-end-5 row-start-3 row-end-4 ml-5 mr-auto">
+            <span>0</span><span>تومان</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
