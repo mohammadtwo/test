@@ -97,7 +97,15 @@ for (let i = 0; data.products.length > i; i++) {
     data.products[i].img = img[3].soda;
   }
 }
-
+let final =document.getElementById('final')
+final.innerText=0
+function sum() {
+  final.innerText=''
+  final.innerText = data.products.reduce((acc, cur) => {
+    const value = Number(cur.total) || 0;
+    return acc + value;
+  }, 0);
+}
 const counter = document.getElementById("card_cuntiner");
 counter.innerHTML = "";
 
@@ -153,19 +161,41 @@ function totalPrice() {
   const btnPlus = document.querySelectorAll(".plus");
   const btnMines = document.querySelectorAll(".mines");
   const Cunts = document.querySelectorAll(".counter");
-  btnPlus.forEach((item, index) =>
-    item.addEventListener("click", () => {
-      let val = parseInt(Cunts[index].innerText);
-      Cunts[index].innerText = ++val;
-      
+  const price = document.querySelectorAll(".price");
+  const total = document.querySelectorAll(".total");
+  btnPlus.forEach((iteme, index) =>
+    iteme.addEventListener("click", () => {
+      let val =+Cunts[index].innerText;
+      // val = parseInt(Cunts[index].innerText);
+
+      ++val;
+      Cunts[index].innerText = val;
+      total[index].innerText = "";
+      total[index].innerText = parseInt(val * price[index].innerText);
+        console.log(total[index].innerText);
+      data.products[index].total=+total[index].innerText;
+      console.log(data.products);
+      sum()
+    
     })
   );
   btnMines.forEach((item, index) => {
     item.addEventListener("click", () => {
-      let val = Cunts[index].innerText;
-      Cunts[index].innerText = --val;
-      
+      // val = Cunts[index].innerText;
+      let val =+Cunts[index].innerText
+      if (val) {
+        --val;
+      }
+      Cunts[index].innerText = val;
+      total[index].innerText = "";
+        total[index].innerText = parseInt(val * price[index].innerText);
+      data.products[index].total = +total[index].innerText;
+      sum();
+      console.log(data.products);
+
+        console.log(total[index].innerText)
     });
   });
+
 }
 
