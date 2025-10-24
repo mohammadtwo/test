@@ -9,7 +9,6 @@ const data = {
       id: 1,
       title: "همبرگر مخصوص",
       price: 10000,
-      
     },
     {
       id: 2,
@@ -73,30 +72,32 @@ let img = [
   },
 ];
 
-      for(let i=0;data.products.length>i;i++){
-        if (
-          data.products[i].title === "همبرگر مخصوص" ||
-          data.products[i].title === "همبرگر معمولی" ||
-          data.products[i].title === " همبرگر مخصوص قارچ و پنیر" ||
-          data.products[i].title === "همبرگر معمولی با قارچ و پنیر"
-        ) {
-          data.products[i].img = img[0].berger
-        }else if(data.products[i].title==="سیب زمینی سرخ کرده"||
-        data.products[i].title==="سیب زمینی سرخ کرده ویژه"){
-            data.products[i].img=img[1].french
-        }else if(
-          data.products[i].title === "سالاد سزار" ||
-          data.products[i].title === "سالاد فصل" 
+for (let i = 0; data.products.length > i; i++) {
+  if (
+    data.products[i].title === "همبرگر مخصوص" ||
+    data.products[i].title === "همبرگر معمولی" ||
+    data.products[i].title === " همبرگر مخصوص قارچ و پنیر" ||
+    data.products[i].title === "همبرگر معمولی با قارچ و پنیر"
+  ) {
+    data.products[i].img = img[0].berger;
+  } else if (
+    data.products[i].title === "سیب زمینی سرخ کرده" ||
+    data.products[i].title === "سیب زمینی سرخ کرده ویژه"
+  ) {
+    data.products[i].img = img[1].french;
+  } else if (
+    data.products[i].title === "سالاد سزار" ||
+    data.products[i].title === "سالاد فصل"
+  ) {
+    data.products[i].img = img[2].salad;
+  } else if (
+    data.products[i].title === "نوشابه" ||
+    data.products[i].title === "نوشابه رژیمی"
+  ) {
+    data.products[i].img = img[3].soda;
+  }
+}
 
-        ){
-            data.products[i].img=img[2].salad
-        }else if(
-          data.products[i].title === "نوشابه" ||
-          data.products[i].title === "نوشابه رژیمی" ){
-            data.products[i].img=img[3].soda
-          }
-      }
-      
 const counter = document.getElementById("card_cuntiner");
 counter.innerHTML = "";
 
@@ -105,9 +106,9 @@ function showItem() {
     .map((item) => {
       return `<div
           
-          class=" grid grid-cols-4 grid-rows-3 bg-white m-auto mt-5 max-h-[150px] w-[95%] h-[150px] gap-x-2.5 overflow-hidden rounded-2xl"
+          class="card grid grid-cols-4 grid-rows-3 bg-white m-auto mt-5 max-h-[150px] w-[95%] h-[150px] gap-x-2.5 overflow-hidden rounded-2xl"
         >
-          <div class="card col-start-1 col-end-3 row-start-1 row-end-4 relative">
+          <div class=" col-start-1 col-end-3 row-start-1 row-end-4 relative">
             <img
               class="object-cover w-full h-full"
               src="${item.img}"
@@ -147,39 +148,24 @@ function showItem() {
   counter.innerHTML = result;
 }
 showItem();
-// document.querySelectorAll(".mines").forEach((e, index) => {
-   
-// let count = +document.querySelectorAll(".counter")[index].innerText;
-//   e.addEventListener("click", () => {
-//     count--; 
-//     document.querySelectorAll(".counter")[index].innerText =count;
-//   })
-//   ;
-// });
-document.querySelectorAll("card").forEach((box) => {
-  let count = +box.querySelector(".counter").innerText;
-   let total = +box.querySelector(".total").innerText;
-   let price = +box.querySelector(".price").innerText;
-   console.log(count,total,price);
-  box.addEventListener("click", (event) => {
-    const target = event.target;
-    
-    if (target.classList.contains("plus")) {
-      count++;
-      total+=price;
-    
-    }else if (target.classList.contains("mines")) {
-      if(count==0){
-      return}
-      count--;
-      total -= price;
+totalPrice();
+function totalPrice() {
+  const btnPlus = document.querySelectorAll(".plus");
+  const btnMines = document.querySelectorAll(".mines");
+  const Cunts = document.querySelectorAll(".counter");
+  btnPlus.forEach((item, index) =>
+    item.addEventListener("click", () => {
+      let val = parseInt(Cunts[index].innerText);
+      Cunts[index].innerText = ++val;
       
-    }
-
-    box.querySelector(".counter").innerText = count;
-    box.querySelector(".total").innerText = total;
+    })
+  );
+  btnMines.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      let val = Cunts[index].innerText;
+      Cunts[index].innerText = --val;
+      
+    });
   });
-});
-
-
+}
 
