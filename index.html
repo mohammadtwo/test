@@ -18,27 +18,26 @@
         </div>
         <div class="flex flex-col gap-1">
           <div>حق سرویس و کارمزد</div>
-          <div>2000</div>
+          <div id="right_to_service">2000</div>
         </div>
         <div class="flex flex-col gap-1">
           <div>تخفیف :</div>
-          <div>6000</div>
+          <div id="discount">6000</div>
         </div>
         <div
           class="flex items-center justify-center bg-amber-400 gap-2.5 pr-2.5"
         >
-          <div class="">
+          <div>
             <input
+            id="Discount"
               class="outline-none pr-1 block h-8 bg-white"
               type="text"
               placeholder="تخفیف"
             />
           </div>
           <div class="flex items-center relative justify-center">
-            <input
-              class="absolute top-50% left-2.5 h-8 w-8 accent-red-600 text-amber-600"
-              type="checkbox"
-            />
+            <button id="DiscountBtn" type="button" class="flex justify-center items-center hover:bg-blue-200 h-8 w-8 bg-blue-700 text-amber-600"><svg width="20px" height="20px" viewBox="0 -0.5 25 25" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5.5 12.5L10.167 17L19.5 8" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg></button>
+             
           </div>
         </div>
         <div class="flex flex-col gap-1 mb-1">
@@ -46,7 +45,7 @@
           <div>9000 تومان</div>
         </div>
         <div class="bg-blue-950 p-2.5 px-4 text-white rounded-2xl">
-          <button type="button">ثبت سفارش</button>
+          <button type="button" id="submitOrder" >ثبت سفارش</button>
         </div>
       </div>
       <div id="card_cuntiner"

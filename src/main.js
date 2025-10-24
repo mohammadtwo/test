@@ -1,7 +1,4 @@
 import "./style.css";
-import javascriptLogo from "./javascript.svg";
-import viteLogo from "/vite.svg";
-import { setupCounter } from "./counter.js";
 
 const data = {
   products: [
@@ -97,19 +94,50 @@ for (let i = 0; data.products.length > i; i++) {
     data.products[i].img = img[3].soda;
   }
 }
-let final =document.getElementById('final')
-final.innerText=0
+let final = document.getElementById("final");
+let rightToService = document.getElementById("right_to_service");
+let DiscountInput = document.getElementById("Discount");
+let DiscountBtn = document.getElementById("DiscountBtn");
 function sum() {
-  final.innerText=''
-  final.innerText = data.products.reduce((acc, cur) => {
+  rightToService.innerText = "";
+  final.innerText = "";
+  let result = data.products.reduce((acc, cur) => {
     const value = Number(cur.total) || 0;
     return acc + value;
   }, 0);
+  final.innerText = result;
+  rightToService.innerText = result * 0.0009;
 }
+let discount = document.getElementById("discount");
+discount.innerText = "";
+function Discount(DiscountInput, final,rightToService) {
+  let DiscountV = DiscountInput.value.toLowerCase();
+  let result = Number(final.innerText + rightToService.innerText);
+  switch (DiscountV) {
+    case "gold":
+      result *= 0.2;
+      break;
+    case "silver":
+      result *= 0.15;
+      break;
+    case "bronze":
+      result *= 0.1;
+      break;
+    default:
+      result = "کد تخفیف وارد شده صحیح نمیباشد";
+      break;
+  }
+  discount.innerText = result;
+}
+DiscountBtn.addEventListener("click",()=>{
+Discount(DiscountInput, final, rightToService);
+})
 const counter = document.getElementById("card_cuntiner");
 counter.innerHTML = "";
 
 function showItem() {
+  discount.innerText=''
+
   let result = data.products
     .map((item) => {
       return `<div
@@ -165,37 +193,45 @@ function totalPrice() {
   const total = document.querySelectorAll(".total");
   btnPlus.forEach((iteme, index) =>
     iteme.addEventListener("click", () => {
-      let val =+Cunts[index].innerText;
-      // val = parseInt(Cunts[index].innerText);
+      let val = +Cunts[index].innerText;
 
       ++val;
       Cunts[index].innerText = val;
       total[index].innerText = "";
       total[index].innerText = parseInt(val * price[index].innerText);
-        console.log(total[index].innerText);
-      data.products[index].total=+total[index].innerText;
+      console.log(total[index].innerText);
+      data.products[index].total = +total[index].innerText;
       console.log(data.products);
-      sum()
-    
+      sum();
     })
   );
   btnMines.forEach((item, index) => {
     item.addEventListener("click", () => {
-      // val = Cunts[index].innerText;
-      let val =+Cunts[index].innerText
+      let val = +Cunts[index].innerText;
       if (val) {
         --val;
       }
       Cunts[index].innerText = val;
       total[index].innerText = "";
-        total[index].innerText = parseInt(val * price[index].innerText);
+      total[index].innerText = parseInt(val * price[index].innerText);
       data.products[index].total = +total[index].innerText;
       sum();
-      console.log(data.products);
-
-        console.log(total[index].innerText)
     });
   });
-
 }
+const submitOrder = document.getElementById("submitOrder");
+   submitOrder.addEventListener("click", () => {
+     data.products.forEach((prod) => {
+       prod.total = 0;
+     });
 
+     final.innerText = "";
+     rightToService.innerText = "";
+     discount.innerText = "";
+     DiscountInput.value = "";
+
+     showItem();
+     totalPrice();
+     alert("سفارش با موفقیت ثبت شد!");
+
+   });
