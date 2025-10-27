@@ -98,6 +98,18 @@ let final = document.getElementById("final");
 let rightToService = document.getElementById("right_to_service");
 let DiscountInput = document.getElementById("Discount");
 let DiscountBtn = document.getElementById("DiscountBtn");
+let discount = document.getElementById("discount");
+  rightToService.innerText = 0;
+    discount.innerText = 0;
+
+  final.innerText = 0;
+let finalPrice =document.getElementById("total-price1")
+function finalPrice1(){
+  finalPrice.innerText=''
+  finalPrice.innerText = Number(final.innerText) + Number( rightToService.innerText) -Number( discount.innerText);
+}
+
+
 function sum() {
   rightToService.innerText = "";
   final.innerText = "";
@@ -107,36 +119,44 @@ function sum() {
   }, 0);
   final.innerText = result;
   rightToService.innerText = result * 0.0009;
+  discount.innerText = 0;
+
+finalPrice1();
+
 }
-let discount = document.getElementById("discount");
-discount.innerText = "";
 function Discount(DiscountInput, final,rightToService) {
   let DiscountV = DiscountInput.value.toLowerCase();
-  let result = Number(final.innerText + rightToService.innerText);
+  let result = Number(final.innerText) + Number(rightToService.innerText)
   switch (DiscountV) {
     case "gold":
       result *= 0.2;
       break;
-    case "silver":
-      result *= 0.15;
+      case "silver":
+        result *= 0.15;
       break;
     case "bronze":
       result *= 0.1;
       break;
-    default:
-      result = "کد تخفیف وارد شده صحیح نمیباشد";
-      break;
-  }
-  discount.innerText = result;
+      default:
+        result = "کد تخفیف وارد شده صحیح نمیباشد";
+        break;
+      }
+      DiscountV=''
+      DiscountInput.value=''
+      discount.innerText=''
+      discount.innerText = result;
+finalPrice1();
+
 }
 DiscountBtn.addEventListener("click",()=>{
 Discount(DiscountInput, final, rightToService);
+
 })
 const counter = document.getElementById("card_cuntiner");
 counter.innerHTML = "";
 
 function showItem() {
-  discount.innerText=''
+  discount.innerText=0
 
   let result = data.products
     .map((item) => {
@@ -219,16 +239,18 @@ function totalPrice() {
     });
   });
 }
+finalPrice1();
 const submitOrder = document.getElementById("submitOrder");
    submitOrder.addEventListener("click", () => {
      data.products.forEach((prod) => {
        prod.total = 0;
      });
 
-     final.innerText = "";
-     rightToService.innerText = "";
-     discount.innerText = "";
+     final.innerText = 0;
+     rightToService.innerText = 0;
+     discount.innerText = 0;
      DiscountInput.value = "";
+  finalPrice.innerText = 0;
 
      showItem();
      totalPrice();
