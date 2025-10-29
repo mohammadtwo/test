@@ -1,0 +1,72 @@
+import { setImage } from "../utils/el";
+
+export const data1 = {
+  products: [
+    {
+      id: 1,
+      title: "همبرگر مخصوص",
+      price: 10000,
+    },
+    {
+      id: 2,
+      title: "همبرگر معمولی",
+      price: 8000,
+    },
+    {
+      id: 3,
+      title: " همبرگر مخصوص قارچ و پنیر",
+      price: 20000,
+    },
+    {
+      id: 4,
+      title: "همبرگر معمولی با قارچ و پنیر",
+      price: 10000,
+    },
+    {
+      id: 5,
+      title: "سیب زمینی سرخ کرده",
+      price: 10000,
+    },
+    {
+      id: 6,
+      title: "سیب زمینی سرخ کرده ویژه",
+      price: 25000,
+    },
+    {
+      id: 7,
+      title: "نوشابه",
+      price: 5000,
+    },
+    {
+      id: 8,
+      title: "نوشابه رژیمی",
+      price: 6000,
+    },
+    {
+      id: 9,
+      title: "سالاد سزار",
+      price: 25000,
+    },
+    {
+      id: 10,
+      title: "سالاد فصل",
+      price: 8000,
+    },
+  ],
+};
+const img = [
+  {
+    berger: "./src/assets/Images/Berguer.jpg",
+  },
+  {
+    french: "./src/assets/Images/french_fries.png",
+  },
+  {
+    salad: "./src/assets/Images/salad.png",
+  },
+  {
+    soda: "./src/assets/Images/soda.png",
+  },
+];
+
+setImage(data1, img);
