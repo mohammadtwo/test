@@ -8,24 +8,24 @@
     <title>my-project</title>
   </head>
   <body>
-    <div id="app" class="bg-gray-500 p-4 h-dvh gap-4 w-full flex flex-col">
+    <div id="app" class="bg-[#00688e] p-4 h-dvh gap-4 w-full flex flex-col lg:flex-row-reverse">
       <div
-        class="bg-amber-400 flex-1 gap-1 rounded-2xl p-2 flex flex-col justify-between text-center max-h-96 items-center"
+        class="bg-[#00c8c4] lg:min-w-[400px] flex-1 gap-1 rounded-2xl p-2 flex flex-col justify-between text-center max-h-96 items-center"
       >
-        <div class="flex flex-col gap-1">
+        <div class="flex flex-col gap-1 lg:flex-row lg:justify-between lg:w-[90%]">
           <div>جمع کل سفارشات :</div>
           <div id="final">4000</div>
         </div>
-        <div class="flex flex-col gap-1">
+        <div class="flex flex-col gap-1 lg:flex-row lg:justify-between lg:w-[90%] ">
           <div>حق سرویس و کارمزد</div>
           <div id="right_to_service">2000</div>
         </div>
-        <div class="flex flex-col gap-1">
+        <div class="flex flex-col gap-1 lg:flex-row lg:justify-between lg:w-[90%]">
           <div>تخفیف :</div>
           <div id="discount">6000</div>
         </div>
         <div
-          class="flex items-center justify-center bg-amber-400 gap-2.5 pr-2.5"
+          class="flex items-center justify-between bg-white rounded-[3px] overflow-hidden lg:w-[90%] gap-2.5 pr-2.5"
         >
           <div>
             <input
@@ -40,16 +40,16 @@
              
           </div>
         </div>
-        <div class="flex flex-col gap-1 mb-1">
+        <div class="flex flex-col gap-1 mb-1 lg:flex-row lg:justify-between lg:w-[90%] bg-[#ffdb02] p-2.5 rounded-[5px]">
           <div>مبلغ قابل پرداخت :</div>
           <div id="total-price1">9000 تومان</div>
         </div>
-        <div class="bg-blue-950 p-2.5 px-4 text-white rounded-2xl">
+        <div class="bg-[#00688e] p-2.5 px-4 text-white rounded-2xl">
           <button type="button" id="submitOrder" >ثبت سفارش</button>
         </div>
       </div>
       <div id="card_cuntiner"
-        class="bg-blue-500 flex-4 overflow-y-auto rounded-2xl grid grid-cols-1 gap-y-10 max-h-full"
+        class="bg-[#00c8c4] pt-20 relative flex-4 overflow-hidden overflow-y-auto rounded-2xl grid grid-cols-[repeat(auto-fit,minmax(285px,1fr))] lg:grid-cols-2  max-h-full"
       >
         <div
           id="card"

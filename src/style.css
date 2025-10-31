@@ -1,1 +1,15 @@
 @import "tailwindcss";
+::-webkit-scrollbar {
+  width: 8px;        /* ضخامت اسکرول عمودی */
+  height: 8px;       /* ارتفاع اسکرول افقی */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #94a3b8; /* رنگ اسکرول (Gray-400 مثلاً) */
+  border-radius: 8px;        /* گردی گوشه‌ها */
+
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;   /* رنگ پشت زمینه */
+}
