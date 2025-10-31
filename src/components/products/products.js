@@ -1,7 +1,7 @@
 export function showItem(discount, data, container) {
   discount.innerText = 0;
     container.innerHTML = `
-      <h1 class='absolute w-full flex justify-center items-center to-0 right- pt-5 text-4xl text-white' >رستوران مک دونالد شعبه تهران</h1>
+      <h1 class='absolute w-full flex justify-center items-center to-0 right- pt-5 text-xl lg:text-4xl text-white' >رستوران مک دونالد شعبه تهران</h1>
     <div class=" fixed w-full h-4 bg-[#00688e] bottom-0 right-0"></div>
   `;
   let result = data.products
