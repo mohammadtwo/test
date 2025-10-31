@@ -74,6 +74,10 @@ const container = document.getElementById("card_cuntiner");
 container.innerHTML = "";
 
 
+
+
+
+
 showItem(discount, data, container);
 totalPrice(plus, mines, counter, price, total);
 
