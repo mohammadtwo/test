@@ -79,7 +79,6 @@ container.innerHTML = "";
 
 
 showItem(discount, data, container);
-totalPrice(plus, mines, counter, price, total);
 
 totalPrice(plus, mines, counter, price, total,sum,data);
 
@@ -97,6 +96,7 @@ submitOrder.addEventListener("click", () => {
   finalPrice.innerText = 0;
 
 showItem(discount, data, container);
-  totalPrice(plus, mines, counter, price, total);
+ totalPrice(plus, mines, counter, price, total, sum, data);
+
   alert("سفارش با موفقیت ثبت شد!");
 });
